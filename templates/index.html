@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for event in event %}
+<li>
+    <a href="{% url 'show-event' event.id %}">{{event}}</a> <a href="{% url 'delete-event' event.id %}">supprimer</a>
+</li>
+{% endfor %}
+{% endblock %}
