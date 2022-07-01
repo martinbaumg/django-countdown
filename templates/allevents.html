@@ -1,0 +1,31 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'all.css' %}" />
+<script src="https://kit.fontawesome.com/c9d0f4a074.js" crossorigin="anonymous"></script>
+<!-- 
+
+GRADIENT BANNER DESIGN BY SIMON LURWER ON DRIBBBLE:
+https://dribbble.com/shots/14101951-Banners
+
+-->
+<div class="main-container">
+    <div class="heading">
+      <h1 class="heading__title">Voici tous les événements</h1>
+      <p class="heading__credits"><a class="heading__link" href="{% url 'addevent' %}">Ajouter un événement</a></p>
+    </div>
+    <div class="cards">
+        {% for event in event %}
+      <div class="card card-1">
+        <div class="card__icon"><i class="fas fa-bolt"></i></div>
+        <p class="card__exit">
+            <a href="{% url 'delete-event' event.id %}"><i class="fas fa-times"></i></a>
+        </p>
+        <h2 class="card__title"> {{event.name}} </h2>
+        <p class="card__apply">
+          <a class="card__link" href="{% url 'show-event' event.id %}">Voir le temps restant <i class="fas fa-arrow-right"></i></a>
+        </p>
+      </div>
+      {% endfor %}
+    
+     
+    </div>
+  </div>

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <form class="quest" method="post" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <center>
+            <input id="butt" class=" btn btn-primary" type="submit" value="Envoyer les données"\>
+        </center>
+    </form>
+</div>
+{% endblock %}

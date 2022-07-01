@@ -1,12 +1,27 @@
-{% extends 'base.html' %}
-{% load static %}
+{% extends 'base.html' %} 
+{% load static %} 
 
 {% block scripts %}
-<script src="{% static 'main.js' %}" ></script>
+<script src="{% static 'main.js' %}" defer></script>
 
-{% endblock scripts %}
-
-
+{% endblock scripts %} 
 {% block content %}
-
+<link rel="stylesheet" href="{% static 'show.css' %}" />
+<script src="https://kit.fontawesome.com/c9d0f4a074.js" crossorigin="anonymous"></script>
+<div class="cards">
+    <div class="card card-1">
+        <div class="date" id="event-box">{{event.date|date:"d M, Y H:m:s"}}</div>
+        <div class="display">
+            <h4 class="card__title">
+                {{event.name}} aura lieu dans : 
+                <div id="countdown-box" class="text-center mt-1 h5">
+                    <div class="spinner-border" role="status"></div>
+                </div>
+            </h4>
+        </div>
+        <p class="card__apply">
+            <a class="card__link" href="{% url 'all-events' %}">Retour</a>
+        </p>
+    </div>
+</div>
 {% endblock %}

@@ -1,8 +1,14 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-{% for event in event %}
-<li>
-    <a href="{% url 'show-event' event.id %}">{{event}}</a> <a href="{% url 'delete-event' event.id %}">supprimer</a>
-</li>
-{% endfor %}
+<link rel="stylesheet" href="{% static 'main.css' %}" />
+<title>Compte à rebours d'événements</title>
+<ul>
+  <li><a href="#" data-text="Home">Accueil</a></li>
+  <li><a href="{% url 'all-events' %}" data-text="Tous">Tous les événements</a></li>
+  <li><a href="#" data-text="Ajouter">Ajouter un événement</a></li>
+  <li><a href="#" data-text="Work">Work</a></li>
+  <li><a href="#" data-text="Team">Team</a></li>
+  <li><a href="#" data-text="Contact">Contact</a></li>
+</ul>
 {% endblock %}
