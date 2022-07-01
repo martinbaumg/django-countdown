@@ -40,7 +40,7 @@ def editevent(request, id):
         form = EventForm(request.POST, request.FILES, instance=event)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect("/")
+            return HttpResponseRedirect("../allevents")
     else:
         form = EventForm(instance=event)
     return render(request, 'editevent.html', {'form': form})

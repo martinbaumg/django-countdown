@@ -1,8 +1,60 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} 
+{% block css %}
+{% load materializecss %}
+{% load static %}
+<link
+  href="https://fonts.googleapis.com/icon?family=Material+Icons"
+  rel="stylesheet"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/css/materialize.min.css"
+  integrity="sha256-qj3p6P1fJIV+Ndv7RW1ovZI2UhOuboj9GcODzcNFIN8="
+  crossorigin="anonymous"
+/>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<link rel="stylesheet" href="{% static 'add.css' %}" />
+{% endblock css %} 
+
+
+{% block scripts %}
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.1/js/materialize.min.js"
+  integrity="sha256-SrBfGi+Zp2LhAvy9M1bWOCXztRU9Ztztxmu5BcYPcPE="
+  crossorigin="anonymous"
+></script>
+
+<script>
+  $(document).ready(function () {
+    // Initialize materialize data picker
+    $(".datepicker").datepicker({ format: "yyyy-mm-dd" });
+    $("select").formSelect();
+  });
+</script>
+{% endblock scripts %} 
+
+
 {% block content %}
 <form class="quest" method="post" action="">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input id="butt" class=" btn btn-primary" type="submit" value="Envoyer les données"\>
+  {% csrf_token %} 
+  
+<div class="tout">
+    {{ form|materializecss:'custom_size=m9' }}
+    <input
+    id="butt"
+    class="btn btn-primary"
+    type="submit"
+    value="Ajouter"
+    \
+  />
 </form>
+</div>
+
+
 {% endblock %}

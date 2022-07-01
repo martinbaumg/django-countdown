@@ -1,5 +1,5 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'all.css' %}" />
+<link rel="stylesheet" href="{% static 'alll.css' %}" />
 <script src="https://kit.fontawesome.com/c9d0f4a074.js" crossorigin="anonymous"></script>
 <!-- 
 
@@ -15,7 +15,9 @@ https://dribbble.com/shots/14101951-Banners
     <div class="cards">
         {% for event in event %}
       <div class="card card-1">
-        <div class="card__icon"><i class="fas fa-bolt"></i></div>
+        <div class="card__icon">
+            <a class="card__link" href="{% url 'edit-event' event.id %}"><i class="fa-solid fa-pen-to-square"></i></a>
+        </div>
         <p class="card__exit">
             <a href="{% url 'delete-event' event.id %}"><i class="fas fa-times"></i></a>
         </p>
